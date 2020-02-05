@@ -1,0 +1,35 @@
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Controle Mensal</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Gerencie seus gastos mensais</li>
+        </ol>
+        
+        <div class="card mb-4">
+            <div class="card-header"><i class="fas fa-table mr-1"></i>Dados:</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable"
+                         width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>DATA</th>
+                                <th>Usuario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let mes of meses">
+                                <td>{{mes.id}}</td>
+                                <td>{{mes.data}}</td>
+                                <td>{{mes.usuario.nome}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
