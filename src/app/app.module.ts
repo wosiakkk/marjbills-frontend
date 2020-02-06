@@ -8,7 +8,6 @@ import { FooterComponent } from './footer/footer.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { RouterModule } from '@angular/router'
 import { ROUTES } from './app.routes';
-import { MesesComponent } from './meses/meses.component'
 import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
@@ -18,8 +17,6 @@ import { HttpClientModule } from '@angular/common/http'
     SideMenuComponent,
     FooterComponent,
     MainContentComponent,
-    MesesComponent,
-    
   ],
   imports: [
     BrowserModule,
