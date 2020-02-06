@@ -1,0 +1,55 @@
+
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Categorias</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Gerencie suas categorias</li>
+        </ol>
+        
+        <div class="card mb-6 ">
+            <div class="card-header"><i class="fas fa-save mr-1"></i>Cadastro Categoria:</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6 ">
+                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                    </div>
+                    <div class="ol-sm-6 ">
+                        <button class="btn btn-small btn-success" (click)="salvarCategoria()">Salvar</button>
+                    </div>
+                </div>
+                
+               
+            </div>
+        </div>
+
+        <div class="card mb-4">
+           
+                <div class="card-header"><i class="fas fa-table mr-1"></i>Dados:</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable"
+                            width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Descrição</th>
+                                    <th>Editar</th>
+                                    <th>Remover</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let categoria of categorias">
+                                    <td>{{categoria.id}}</td>
+                                    <td>{{categoria.descricao}}</td>
+                                    <td><button class="btn btn-warning"><i class="fas fa-edit mr-1"></i></button></td>
+                                    <td><button class="btn btn-danger"><i class="fas fa-trash mr-1"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+          
+        </div>
+    </div>
+</main>
+
