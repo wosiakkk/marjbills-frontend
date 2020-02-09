@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Categoria } from './categoria/categoria.model'
 import { CategoriaService } from './categorias.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 
@@ -11,9 +10,8 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class CategoriasComponent implements OnInit {
 
-
-  categoria: Categoria = new Categoria()
-  categorias: Categoria[]
+  categoria: Categoria = new Categoria();
+  categorias: Categoria[];
   cols: any[]
 
   constructor(private categoriaService: CategoriaService) { }

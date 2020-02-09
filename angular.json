@@ -25,6 +25,7 @@
             ],
             "styles": [
               "src/styles.css",
+              "node_modules/cssPersonalizado/style.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
@@ -35,13 +36,13 @@
             ],
             "scripts": ["node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "src/app/assets/js/chart-area-demo.js",
-              "src/app/assets/js/chart-bar-demo.js",
-              "src/app/assets/js/chart-pie-demo.js",
-              "src/app/assets/js/datatables-demo.js",
-              "src/app/assets/js/datatables-demo.js",
-              "src/app/assets/js/scripts.js",
-              "src/app/assets/js/font-awesome/all.min.js"]
+              "src/app/assetsSb/js/chart-area-demo.js",
+              "src/app/assetsSb/js/chart-bar-demo.js",
+              "src/app/assetsSb/js/chart-pie-demo.js",
+              "src/app/assetsSb/js/datatables-demo.js",
+              "src/app/assetsSb/js/datatables-demo.js",
+              "src/app/assetsSb/js/scripts.js",
+              "src/app/assetsSb/js/font-awesome/all.min.js"]
           },
           "configurations": {
             "production": {
