@@ -10212,3 +10212,12 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
 }
+.main{
+  position: relative; /* all child elements gets positioned relative to this element */
+}
+.card-header .card{
+  position: fixed; /* stay fixed on top */
+  top: 0;
+  width: 100%;
+  z-index: 1; /* needed to stay above other elements */
+}

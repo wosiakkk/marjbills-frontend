@@ -1,4 +1,9 @@
-export interface Categoria{
-    id:string,
-    descricao:string
+export class Categoria{
+    public id:string
+    public descricao:string
+
+    constructor(){
+        this.id =""; 
+        this.descricao ="";
+    }
 }
