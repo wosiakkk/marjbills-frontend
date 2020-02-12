@@ -12,14 +12,19 @@ export class CategoriasComponent implements OnInit {
 
   categoria: Categoria = new Categoria();
   categorias: Categoria[];
-  cols: any[]
+  cols: any[];
+  loading: boolean;
 
   constructor(private categoriaService: CategoriaService) { }
 
   ngOnInit(){
-    this.categoriaService.getCategorias().subscribe(
-      response => this.categorias = response
-    )
+    this.loading = true;
+    setTimeout(() => {
+      this.categoriaService.getCategorias().subscribe(
+        response => this.categorias = response
+      );
+      this.loading = false;
+    }, 500);
     this.cols = [
       { field: 'id', header: 'ID' },
       { field: 'desc', header: 'Descrição' },
@@ -31,7 +36,7 @@ export class CategoriasComponent implements OnInit {
   salvarCategoria(){
     this.categoriaService.salvar(this.categoria).subscribe(
       response => {
-        alert("salvo com sucesso")
+        alert("salvo com sucesso");
         this.categoriaService.getCategorias().subscribe(
           response =>{
             this.categorias = response
@@ -40,7 +45,7 @@ export class CategoriasComponent implements OnInit {
         this.categoria.descricao = "";
       },
       error =>{
-        alert("erro ao salvar")
+        alert("erro ao salvar");
       }
     )
   }
@@ -48,7 +53,7 @@ export class CategoriasComponent implements OnInit {
   deletar(categoria: Categoria){
     this.categoriaService.deletar(categoria).subscribe(
       response =>{
-        alert("deletado com sucesso")
+        alert("deletado com sucesso");
         this.categoriaService.getCategorias().subscribe(
           response =>{
             this.categorias = response
@@ -56,27 +61,27 @@ export class CategoriasComponent implements OnInit {
         )
       },
       error =>{
-        alert("Essa Categoria está em uso!")
+        alert("Essa Categoria está em uso!");
       }
     )
   }
 
   clear(){
-    this.categoria.descricao = ""
-    this.categoria.id = ""
+    this.categoria.descricao = "";
+    this.categoria.id = "";
     this.categoriaService.getCategorias().subscribe(
       response => this.categorias = response
     )
   }
 
   setParaEdit(categoria: Categoria){
-    this.categoria = categoria
+    this.categoria = categoria;
   }
 
   editarCategoria(){
     this.categoriaService.editar(this.categoria).subscribe(
       response =>{
-        alert("editado com sucesso")
+        alert("editado com sucesso");
         this.categoriaService.getCategorias().subscribe(
           response =>{
             this.categorias = response
@@ -86,7 +91,7 @@ export class CategoriasComponent implements OnInit {
         this.categoria.id = "";
       },
       error =>{
-        alert("problema ao editar")
+        alert("problema ao editar");
       }
     )
   }

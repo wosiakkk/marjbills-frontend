@@ -1,10 +1,12 @@
+<div class="container-fluid">
+    <h1 class="mt-4">Categorias</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Gerencie suas categorias</li>
+    </ol>
+</div>
 <main>
-    <div class="container-fluid">
-        <h1 class="mt-4">Categorias</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Gerencie suas categorias</li>
-        </ol>
 
+    <div class="container-fluid" style="height: 100rem;">
         <div class="card mb-6 ">
             <div class="card-header"><i class="fas fa-save mr-1"></i>Cadastro Categoria:</div>
             <div class="card-body">
@@ -16,37 +18,39 @@
 
                     </div>
                     <div class="ol-sm-6 ">
-                        <button class="btn btn-small btn-success" *ngIf="categoria.id == ''"
+                        <button class="btn btn-outline-success" *ngIf="categoria.id == ''"
                             (click)="salvarCategoria()">Salvar</button>
-                        <button class="btn btn-small btn-success" *ngIf="categoria.id != ''"
+                        <button class="btn btn-outline-success" *ngIf="categoria.id != ''"
                             (click)="editarCategoria()">Salvar</button>
 
                     </div>
                     <div class="ol-sm-6 " style="padding-left: 1%">
-                        <button class="btn btn-small btn-info" (click)="clear()">Cancelar</button>
+                        <button class="btn btn-outline-danger" (click)="clear()">Cancelar</button>
                     </div>
                 </div>
             </div>
         </div>
         <br />
-        <div class="card mb-4" style=" height: 100rem;">
+        <div class="card mb-4">
 
             <div class="card-header"><i class="fas fa-table mr-1"></i>Dados:</div>
             <div class="card-body">
                 <div class="table-responsive">
+                    <div class="container-fluid" style="padding-bottom: 1rem;">
+                        <i class="fa fa-search" style="margin:4px 4px 0 0;"></i>
+                        <input type="text" pInputText size="35" placeholder="Global Filter"
+                            (input)="tt.filterGlobal($event.target.value, 'contains')">
+                    </div>
+
                     <p-table #tt [columns]="cols" [value]="categorias" [paginator]="true" [rows]="5"
-                        [globalFilterFields]="['descricao','id']">
-                        <ng-template pTemplate="caption">
-                            <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
-                            <input type="text" pInputText size="50" placeholder="Global Filter"
-                                (input)="tt.filterGlobal($event.target.value, 'contains')" style="width:auto">
-                        </ng-template>
+                        [globalFilterFields]="['descricao','id']" [loading]="loading">
+
                         <ng-template pTemplate="header" let-columns>
                             <tr>
                                 <th>ID</th>
                                 <th>Desccrição</th>
                                 <th>Editar</th>
-                                <th>Excluir</th>
+                                
                             </tr>
 
                         </ng-template>
@@ -58,10 +62,14 @@
                                 <td>
                                     {{categorias.descricao}}
                                 </td>
-                                <td><button class="btn btn-warning" (click)="setParaEdit(categorias)"><i
-                                            class="fas fa-edit mr-1"></i></button></td>
-                                <td><button class="btn btn-danger" (click)="deletar(categorias)"><i
-                                            class="fas fa-trash mr-1"></i></button></td>
+                                <td>
+                                    <button class="btn btn-outline-dark" (click)="setParaEdit(categorias)" style="margin-right: 0.5rem"><i
+                                        class="fas fa-pen mr-1 align-middle" style="font-size:20px; "></i></button>
+                                    
+                                    <button class="btn btn-outline-dark" (click)="deletar(categorias)"><i
+                                        class="fas fa-trash mr-1 align-middle" style="font-size:20px;"></i></button> 
+                                </td>
+
                             </tr>
                         </ng-template>
                         <ng-template pTemplate="emptymessage" let-columns>
@@ -74,7 +82,7 @@
                     </p-table>
                 </div>
             </div>
-
         </div>
+
     </div>
 </main>
