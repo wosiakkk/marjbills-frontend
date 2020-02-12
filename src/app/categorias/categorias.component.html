@@ -12,21 +12,32 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-6 " style="padding-bottom: 2%">
-                        <textarea class="form-control" pInputText [(ngModel)]="categoria.descricao" name="descricao"
-                            #descricao="ngModel" required minlength="4" aria-label="With textarea"></textarea>
+                        <h6 >Descrição:</h6>
+                        <textarea id="desc" class="form-control" pInputText [(ngModel)]="categoria.descricao" name="descricao"
+                            #descricao="ngModel" required minlength="4" aria-label="With textarea" >
+                        </textarea>
                         <input name="catid" hidden [(ngModel)]="categoria.id" />
-
+                        <div *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)"
+                            class="alert-danger">
+                            <div *ngIf="descricao.errors.required">
+                                A descrição é obrigatória!
+                            </div>
+                            <div *ngIf="descricao.errors.minlength">
+                                A descrição deve ter no minimo 4 caracteres.
+                            </div>
+                        </div>
                     </div>
-                    <div class="ol-sm-6 ">
+                    <div class="ol-sm-6 " style="padding-top: 2rem;">
                         <button class="btn btn-outline-success" *ngIf="categoria.id == ''"
-                            (click)="salvarCategoria()">Salvar</button>
+                            (click)="salvarCategoria(); descricao.reset();" [disabled]="!descricao.valid">Salvar</button>
                         <button class="btn btn-outline-success" *ngIf="categoria.id != ''"
                             (click)="editarCategoria()">Salvar</button>
 
                     </div>
-                    <div class="ol-sm-6 " style="padding-left: 1%">
-                        <button class="btn btn-outline-danger" (click)="clear()">Cancelar</button>
+                    <div class="ol-sm-6 " style="padding-left: 1%; padding-top: 2rem;">
+                        <button class="btn btn-outline-danger" (click)="clear(); descricao.reset();">Cancelar</button>
                     </div>
+
                 </div>
             </div>
         </div>

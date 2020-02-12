@@ -42,7 +42,7 @@ export class CategoriasComponent implements OnInit {
             this.categorias = response
           }
         )
-        this.categoria.descricao = "";
+        this.categoria = new Categoria();
       },
       error =>{
         alert("erro ao salvar");
