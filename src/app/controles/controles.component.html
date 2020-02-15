@@ -1,0 +1,111 @@
+<div class="container-fluid">
+    <h1 class="mt-4">Controles</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Gerencie seus controles anuais</li>
+    </ol>
+</div>
+<main>
+
+    <div class="container-fluid" style="height: 100rem;">
+        <div>
+            <p-accordion>
+                <p-accordionTab header="Cadastrar um novo Controle" titleStyle="background-color:#81DAF5;">
+                    <div class="container-fluid">
+                        <div class="input-group mb-6 col-sm-6 col-lg-8">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Descrição</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+                                [(ngModel)]="controle.descricao" required minlength="4" name="descricao" #descricao="ngModel">
+                            
+                            <div *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)" class="form-control alert-danger">
+                                <div *ngIf="descricao.errors.required" class="input-group-prepend" >
+                                        A descrição é obrigatória!
+                                </div>
+                                <div *ngIf="descricao.errors.minlength" class="input-group-prepend">
+                                    A descrição deve ter no minimo 4 caracteres.
+                                </div>
+                            </div> 
+                        </div> 
+                        <br />
+                        <div class="input-group mb-3 col-sm-3 col-lg-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Ano</span>
+                            </div>
+                            <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="container-fluid">
+                        <div class="mb-6 col-sm-6 col-lg-12">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-secondary">Salvar</button>
+                                <button type="button" class="btn btn-secondary">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </p-accordionTab>
+            </p-accordion>
+        </div>
+        <br />
+        <div class="card mb-4">
+
+            <div class="card-header"><i class="fas fa-table mr-1"></i>Dados:</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div class="container-fluid" style="padding-bottom: 1rem;">
+                        <i class="fa fa-search" style="margin:4px 4px 0 0;"></i>
+                        <input type="text" pInputText size="35" placeholder="Global Filter"
+                            (input)="tt.filterGlobal($event.target.value, 'contains')">
+                    </div>
+
+                    <p-table #tt [columns]="cols" [value]="controles" [paginator]="true" [rows]="5"
+                        [globalFilterFields]="['descricao','id','ano']" [loading]="loading">
+
+                        <ng-template pTemplate="header" let-columns>
+                            <tr>
+                                <th>ID</th>
+                                <th>Desccrição</th>
+                                <th>Ano</th>
+                                <th>Ações</th>
+                            </tr>
+
+                        </ng-template>
+                        <ng-template pTemplate="body" let-controles>
+                            <tr>
+                                <td>
+                                    {{controles.id}}
+                                </td>
+                                <td>
+                                    {{controles.descricao}}
+                                </td>
+                                <td>
+                                    {{controles.ano}}
+                                </td>
+                                <td>
+                                    <button class="btn btn-outline-dark" style="margin-right: 0.5rem"><i
+                                        class="fas fa-eye mr-1 align-middle" style="font-size:20px;"></i></button> 
+                                    
+                                    <button class="btn btn-outline-dark"  style="margin-right: 0.5rem"><i
+                                        class="fas fa-pen mr-1 align-middle" style="font-size:20px; "></i></button>
+                                    
+                                    <button class="btn btn-outline-dark" ><i
+                                        class="fas fa-trash mr-1 align-middle" style="font-size:20px;"></i></button> 
+                                </td>
+
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="emptymessage" let-columns>
+                            <tr>
+                                <td [attr.colspan]="columns.length">
+                                    <strong>Você ainda não tem nenhuma Categoria cadastrada!</strong>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>

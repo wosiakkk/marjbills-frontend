@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { registerLocaleData } from '@angular/common';
 import {SidebarModule} from 'primeng/sidebar';
 import ptBr from '@angular/common/locales/pt';
+
 registerLocaleData(ptBr)
 
 
@@ -23,6 +24,7 @@ registerLocaleData(ptBr)
     SideMenuComponent,
     FooterComponent,
     MainContentComponent,
+    
   ],
   imports: [
     BrowserModule,
