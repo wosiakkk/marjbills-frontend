@@ -16,6 +16,7 @@ export class ControleAnualComponent implements OnInit {
 
   controle: Controle = new Controle();
   categorias: Categoria[];
+  selectedCategoria: Categoria;
   
 
   constructor(private route : ActivatedRoute,
