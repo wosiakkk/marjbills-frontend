@@ -9,7 +9,7 @@
     <div class="container-fluid" style="height: 100rem;">
         <div>
             <p-accordion>
-                <p-accordionTab header="Cadastrar um novo Controle" titleStyle="background-color:#81DAF5;">
+                <p-accordionTab header="Cadastrar um novo Controle" #tab  titleStyle="background-color:#81DAF5;">
                     <div class="container-fluid">
                         <div class="input-group mb-6 col-sm-6 col-lg-8">
                             <div class="input-group-prepend">
@@ -17,6 +17,7 @@
                             </div>
                             <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
                                 [(ngModel)]="controle.descricao" required minlength="4" name="descricao" #descricao="ngModel">
+                            <input type="text" [(ngModel)]="controle.id" hidden>
                             
                             <div *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)" class="form-control alert-danger">
                                 <div *ngIf="descricao.errors.required" class="input-group-prepend" >
@@ -32,15 +33,19 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Ano</span>
                             </div>
-                            <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1" 
+                                [(ngModel)]="controle.ano" name="ano" #ano="ngModel">
                         </div>
                     </div>
                     <br/>
                     <div class="container-fluid">
                         <div class="mb-6 col-sm-6 col-lg-12">
                             <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-secondary">Salvar</button>
-                                <button type="button" class="btn btn-secondary">Cancelar</button>
+                                <button type="button" class="btn btn-secondary" *ngIf="controle.id == ''"
+                                     (click)="salvarControle(); descricao.reset(); ano.reset();">Salvar</button>
+                                <button type="button" class="btn btn-secondary" *ngIf="controle.id != ''" 
+                                    (click)="editarControle(); descricao.reset(); ano.reset();">Salvar</button>
+                                <button type="button" class="btn btn-secondary" (click)="clear();">Cancelar</button>
                             </div>
                         </div>
                     </div>
@@ -86,10 +91,10 @@
                                     <button class="btn btn-outline-dark" style="margin-right: 0.5rem"><i
                                         class="fas fa-eye mr-1 align-middle" style="font-size:20px;"></i></button> 
                                     
-                                    <button class="btn btn-outline-dark"  style="margin-right: 0.5rem"><i
+                                    <button class="btn btn-outline-dark"  style="margin-right: 0.5rem" pButton (click)=" setParaEdit(controles); tab.selected='true'"><i
                                         class="fas fa-pen mr-1 align-middle" style="font-size:20px; "></i></button>
                                     
-                                    <button class="btn btn-outline-dark" ><i
+                                    <button class="btn btn-outline-dark" (click)="excluirControle(controles)"><i
                                         class="fas fa-trash mr-1 align-middle" style="font-size:20px;"></i></button> 
                                 </td>
 

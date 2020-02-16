@@ -13,4 +13,16 @@ export class ControlesService{
         return this.http.get<Controle[]>(environment.apiUrl + "/controle")
     }
 
+    salvar(controle: Controle): Observable<Controle>{
+        return this.http.post<Controle>(environment.apiUrl + "/controle", controle)
+    }
+
+    excluir(controle: Controle): Observable<any>{
+        return this.http.delete<any>(environment.apiUrl + "/controle/"+ controle.id)
+    }
+
+    editar(controle: Controle): Observable<Controle>{
+        return this.http.put<Controle>(environment.apiUrl + "/controle/", controle)
+    }
+
 }
