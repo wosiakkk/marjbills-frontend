@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <h1 class="mt-4">Controle Anual: {{idCOntrole.id}}</h1>
+    <h1 class="mt-4">Controle Anual: {{controle.descricao}}</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Gerencie seus gastos mensais</li>
     </ol>
@@ -7,14 +7,49 @@
 <main>
     <div class="container-fluid" style="height: 100rem;">
         <p-tabView>
-            <p-tabPanel header="Header 1">
-               Content 1
-            </p-tabPanel>
-            <p-tabPanel header="Header 2">
-                Content 2
-            </p-tabPanel>
-            <p-tabPanel header="Header 3">
-                Content 3
+            <p-tabPanel [header]="mes.nome" *ngFor="let mes of controle.meses; let i = index" [selected]="i == 0" leftIcon="far fa-calendar-alt">
+                <div class="card mb-6 ">
+                    <div class="card-header"><i class="fas fa-dollar-sign mr-1"></i>Cadastro de Movimentações de {{mes.nome}}:</div>
+                    <div class="card-body">
+                        <div class="container-fluid">
+                            <div class="input-group mb-6 col-sm-6 col-lg-8">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Descrição</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+                                name="descricao" >
+
+                                
+                            </div>
+
+                            <div class="input-group mb-4 col-sm-4 col-lg-4" style="padding-top: 1rem;">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Valor</span>
+                                </div>
+                                <input type="number" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+                                name="descricao" >    
+                            </div>
+                            
+                            <div class="input-group mb-4 col-sm-4 col-lg-4" style="padding-top: 1rem;">
+                                
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Dropdown
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button">Action</button>
+                                      <button class="dropdown-item" type="button">Another action</button>
+                                      <button class="dropdown-item" type="button">Something else here</button>
+                                    </div>
+                                  </div>
+
+
+                            </div>
+
+        
+                        </div>
+                    </div>
+                </div>
             </p-tabPanel>
         </p-tabView>
     </div>

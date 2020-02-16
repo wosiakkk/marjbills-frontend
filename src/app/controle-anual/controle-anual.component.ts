@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
+import { Controle } from '../controles/controle/controle.model';
+import { ControleAnualService } from './controle-anual.service';
+import { Categoria } from '../categorias/categoria/categoria.model';
+import { CategoriaService } from '../categorias/categorias.service';
+
+
 
 
 @Component({
@@ -8,17 +14,33 @@ import {ActivatedRoute, Params} from '@angular/router';
 })
 export class ControleAnualComponent implements OnInit {
 
-  idCOntrole: Params
+  controle: Controle = new Controle();
+  categorias: Categoria[];
+  
 
-  constructor(private route : ActivatedRoute) { }
+  constructor(private route : ActivatedRoute,
+    private controleAnualService: ControleAnualService,
+    private categoriaService: CategoriaService) { }
 
   ngOnInit() {
     this.
       route.
       params.
       subscribe(params => {
-        this.idCOntrole = params
+        this.controle.id = params.id
       });
+      this.controleAnualService.getControleById(this.controle).subscribe(
+        response =>{
+          this.controle = response
+          //ordenando os meses
+          this.controle.meses = this.controle.meses.sort((a,b) => a.id > b.id ? 1 : -1)
+        }
+      );
+      this.categoriaService.getCategorias().subscribe(
+        response =>{
+          this.categorias = response
+        }
+      )
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MesesService } from '../meses/meses.service'
-import { Mes } from './mes/mes.model';
+import { Mes } from './mes/mes2.model';
 
 @Component({
   selector: 'app-mes',

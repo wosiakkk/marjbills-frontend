@@ -1,4 +1,4 @@
-import { Mes } from './mes/mes.model'
+import { Mes } from './mes/mes2.model'
 import{ HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
