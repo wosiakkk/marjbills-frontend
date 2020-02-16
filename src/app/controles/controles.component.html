@@ -88,7 +88,8 @@
                                     {{controles.ano}}
                                 </td>
                                 <td>
-                                    <button class="btn btn-outline-dark" style="margin-right: 0.5rem"><i
+                                    <button class="btn btn-outline-dark" style="margin-right: 0.5rem" 
+                                        [routerLink]="['/ano', controles.id ]"><i
                                         class="fas fa-eye mr-1 align-middle" style="font-size:20px;"></i></button> 
                                     
                                     <button class="btn btn-outline-dark"  style="margin-right: 0.5rem" pButton (click)=" setParaEdit(controles); tab.selected='true'"><i

@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { FooterComponent } from './footer/footer.component';
-import { MainContentComponent } from './main-content/main-content.component';
+import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router'
 import { ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http'
@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { registerLocaleData } from '@angular/common';
 import {SidebarModule} from 'primeng/sidebar';
 import ptBr from '@angular/common/locales/pt';
+
 
 registerLocaleData(ptBr)
 
@@ -23,7 +24,8 @@ registerLocaleData(ptBr)
     HeaderComponent,
     SideMenuComponent,
     FooterComponent,
-    MainContentComponent,
+    HomeComponent,
+    
     
   ],
   imports: [
