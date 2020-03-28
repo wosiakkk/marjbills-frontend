@@ -34,14 +34,17 @@
               "node_modules/primeng/resources/themes/nova-light/theme.css",
               "node_modules/primeng/resources/primeng.min.css"
             ],
-            "scripts": ["node_modules/jquery/dist/jquery.min.js",
+            "scripts": [ 
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/app/assetsSb/js/scripts.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "src/app/assetsSb/js/chart-area-demo.js",
               "src/app/assetsSb/js/chart-bar-demo.js",
               "src/app/assetsSb/js/chart-pie-demo.js",
               "src/app/assetsSb/js/datatables-demo.js",
               "src/app/assetsSb/js/datatables-demo.js",
-              "src/app/assetsSb/js/scripts.js",
+             
               "src/app/assetsSb/js/font-awesome/all.min.js"]
           },
           "configurations": {

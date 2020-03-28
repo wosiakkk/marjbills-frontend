@@ -15,7 +15,8 @@
         });
 
     // Toggle the side navigation
-    $("#sidebarToggle").on("click", function(e) {
+    $(".sb-topnav").on('click','#sidebarToggle', function(e) {
+        console.log('botão toggle pressionado!');
         e.preventDefault();
         $("body").toggleClass("sb-sidenav-toggled");
     });
